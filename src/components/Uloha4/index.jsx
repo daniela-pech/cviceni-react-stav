@@ -1,4 +1,5 @@
 import './carousel.css';
+import { useState } from 'react';
 
 /*
 Zadání 1: Nachystejte si adresy obrázků níže do pole.
@@ -21,20 +22,38 @@ Bonus: Pozor na krajní hodnoty. Pokud dojdete na konec nebo začátek pole, tak
   /assets/YmATDIFsCmQ.jpg
 */
 
+const adresyObrazku = [
+  '/assets/WLUHO9A_xik.jpg',
+  '/assets/DA1eGglMmlg.jpg',
+  '/assets/kTxL6le0Wgk.jpg',
+  '/assets/7go5UASxmDY.jpg',
+  '/assets/YmATDIFsCmQ.jpg',
+];
+
 export const Uloha4 = () => {
+  const [indexObrazku, setIndexObrazku] = useState(0);
+
   return (
     <div className="carousel">
-      <button className="carousel__predchozi" aria-label="předchozí">
+      <button
+        onClick={() => setIndexObrazku(indexObrazku - 1)}
+        className="carousel__predchozi"
+        aria-label="předchozí"
+      >
         ←
       </button>
       <div className="carousel__media">
         <img
           className="carousel__image"
-          src="https://source.unsplash.com/7go5UASxmDY/880x500"
+          src={adresyObrazku[indexObrazku]}
           alt=""
         />
       </div>
-      <button className="carousel__dalsi" aria-label="další">
+      <button
+        onClick={() => setIndexObrazku(indexObrazku + 1)}
+        className="carousel__dalsi"
+        aria-label="další"
+      >
         →
       </button>
     </div>
