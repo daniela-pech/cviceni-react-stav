@@ -37,6 +37,7 @@ export const Uloha4 = () => {
     <div className="carousel">
       <button
         onClick={() => setIndexObrazku(indexObrazku - 1)}
+        disabled={indexObrazku === 0}
         className="carousel__predchozi"
         aria-label="předchozí"
       >
@@ -51,6 +52,7 @@ export const Uloha4 = () => {
       </div>
       <button
         onClick={() => setIndexObrazku(indexObrazku + 1)}
+        disabled={indexObrazku === adresyObrazku.length - 1}
         className="carousel__dalsi"
         aria-label="další"
       >
